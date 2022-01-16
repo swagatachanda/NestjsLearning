@@ -9,4 +9,13 @@ export class UserService {
         @InjectModel(User.name)
         private userModel: Model<UserDocument>
     ) {}
+
+    async createUser(userData: Record<string, any>): Promise<UserDocument> {
+        const newUser = new this.userModel(userData)
+        return newUser.save()
+    }
+
+    async getAllUser(): Promise<UserDocument[]> {
+        return this.userModel.find()
+    }
 }
