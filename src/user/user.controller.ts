@@ -1,5 +1,6 @@
 import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common'
 import { ObjectId } from 'mongoose'
+import { CreateUser } from './dto/create-user.dto'
 import { UserService } from './user.service'
 
 @Controller('user')
@@ -9,7 +10,7 @@ export class UserController {
     @Post()
     createNewUser(
         @Body()
-        createUserBody: Record<string, any>
+        createUserBody: CreateUser
     ) {
         return this.userService.createUser(createUserBody)
     }
