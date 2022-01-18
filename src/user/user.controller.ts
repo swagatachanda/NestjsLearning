@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Get, Param, Put, Delete } from '@nestjs/common'
+import { Controller, Post, Body, Get, Param, Put, Delete, UsePipes, ValidationPipe } from '@nestjs/common'
 import { ObjectId } from 'mongoose'
 import { CreateUser } from './dto/create-user.dto'
 import { UserService } from './user.service'
@@ -8,6 +8,7 @@ export class UserController {
     constructor(private userService: UserService) {}
 
     @Post()
+    @UsePipes(ValidationPipe)
     createNewUser(
         @Body()
         createUserBody: CreateUser

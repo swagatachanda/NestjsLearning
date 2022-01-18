@@ -3,6 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 import { User, UserDocument } from 'src/user/user.model'
 import { Blog, BlogDocument } from './blog.model'
+import { CreateBlog } from './dto/create-blog.dto'
 
 @Injectable()
 export class BlogService {
@@ -12,7 +13,7 @@ export class BlogService {
     ) {}
 
     async addFeatureblog(
-        blogData: Record<string, any>
+        blogData: CreateBlog
     ): Promise<Record<string, any>> {
         const findUser = await this.userModel.findById(blogData.userId)
         if(!findUser){
