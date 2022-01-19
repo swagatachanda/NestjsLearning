@@ -7,7 +7,6 @@ export type BlogDocument = Blog & Document
 export class Blog {
     @Prop({
         type: String,
-        unique: true,
         required: true,
     })
     userId: ObjectId
