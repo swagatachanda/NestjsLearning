@@ -7,18 +7,39 @@ import { InjectModel } from '@nestjs/mongoose'
 import { User, UserDocument } from './user.model'
 import { Model, ObjectId } from 'mongoose'
 import { CreateUser } from './dto/create-user.dto'
+import { ErrorValidation } from './dto/error.dto'
+import { MailService } from 'src/mail/mail.service'
+import { animationFrameScheduler } from 'rxjs'
 
 @Injectable()
 export class UserService {
     constructor(
         @InjectModel(User.name)
-        private userModel: Model<UserDocument>
+        private userModel: Model<UserDocument>,
+        private mailService: MailService
     ) {}
 
-    async createUser(userData: CreateUser): Promise<UserDocument> {
+    async createUser(userData: CreateUser): Promise<Record<string, any>> {
         console.log(userData.role)
         const newUser = new this.userModel(userData)
-        return newUser.save()
+        const saveUser = await newUser.save()
+        var sendmail: ErrorValidation = {
+            success: false,
+        }
+        try {
+            await this.mailService.sendUserConfirmation(
+                saveUser.email,
+                saveUser.name
+            )
+            sendmail.success = true
+        } catch (err) {
+            sendmail.success = false
+            sendmail.error = err
+        }
+        return {
+            message: sendmail,
+            data: saveUser,
+        }
     }
 
     async getAllUser(): Promise<UserDocument[]> {

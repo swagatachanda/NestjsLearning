@@ -5,6 +5,7 @@ import { UserService } from './user.service'
 import { UserController } from './user.controller'
 import { UserExistRule } from './validation/validation'
 import { UserRepository } from './repositories/user.repository'
+import { MailModule } from 'src/mail/mail.module'
 
 @Module({
     imports: [
@@ -14,6 +15,7 @@ import { UserRepository } from './repositories/user.repository'
                 schema: UserModel,
             },
         ]),
+        MailModule
     ],
     controllers: [UserController],
     providers: [UserService, UserExistRule, UserRepository],

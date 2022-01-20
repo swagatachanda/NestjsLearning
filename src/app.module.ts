@@ -7,14 +7,16 @@ import { MongooseModule } from '@nestjs/mongoose'
 import { UserModule } from './user/user.module'
 import { BlogModule } from './blog/blog.module'
 // import { UserExistRule } from './user/validation/validation'
+import { MailModule } from './mail/mail.module';
 
 @Module({
     imports: [
-        ConfigModule.forRoot(),
+        ConfigModule.forRoot({isGlobal: true}),
         MongooseModule.forRoot(process.env.DB_CONNECTION),
         OperationModule,
         UserModule,
-        BlogModule
+        BlogModule,
+        MailModule
     ],
     controllers: [AppController],
     providers: [AppService],
