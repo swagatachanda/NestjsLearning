@@ -284,3 +284,52 @@ console.log(this.id , this.name, this.sec)
 }
 }
 ````
+
+PS C:\Users\KIIT\Desktop\myProjects\nestjs\myfirstproject> npm i @nestjs-modules/mailer nodemailer    
+npm WARN ajv-keywords@3.5.2 requires a peer of ajv@^6.9.1 but none is installed. You must install peer dependencies yourself.
+npm WARN @nestjs-modules/mailer@1.6.1 requires a peer of pug@^2.0.4 but none is installed. You must install peer dependencies yourself.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
++ @nestjs-modules/mailer@1.6.1
++ nodemailer@6.7.2
+
+97 packages are looking for funding
+  run `npm fund` for details
+
+found 2 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
+PS C:\Users\KIIT\Desktop\myProjects\nestjs\myfirstproject> npm i handlebars
+npm WARN @nestjs-modules/mailer@1.6.1 requires a peer of pug@^2.0.4 but none is installed. You must install peer dependencies yourself.
+npm WARN ajv-keywords@3.5.2 requires a peer of ajv@^6.9.1 but none is installed. You must install peer dependencies yourself.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
++ handlebars@4.7.7
+97 packages are looking for funding
+  run `npm fund` for details
+
+found 2 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
+PS C:\Users\KIIT\Desktop\myProjects\nestjs\myfirstproject> npm i @nestjs-modules/mailer nodemailer handlebars
+npm WARN ajv-keywords@3.5.2 requires a peer of ajv@^6.9.1 but none is installed. You must install peer dependencies yourself.
+npm WARN @nestjs-modules/mailer@1.6.1 requires a peer of pug@^2.0.4 but none is installed. You must install peer dependencies yourself.
+npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@2.3.2 (node_modules\fsevents):
+npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.3.2: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
+
++ handlebars@4.7.7
++ @nestjs-modules/mailer@1.6.1
++ nodemailer@6.7.2
+
+81 packages are looking for funding
+  run `npm fund` for details
+
+found 2 moderate severity vulnerabilities
+  run `npm audit fix` to fix them, or `npm audit` for details
+PS C:\Users\KIIT\Desktop\myProjects\nestjs\myfirstproject> nest g module mail
+CREATE src/mail/mail.module.ts (81 bytes)
+UPDATE src/app.module.ts (800 bytes)
+PS C:\Users\KIIT\Desktop\myProjects\nestjs\myfirstproject> nest g service mail
+CREATE src/mail/mail.service.spec.ts (446 bytes)
+CREATE src/mail/mail.service.ts (88 bytes)
+UPDATE src/mail/mail.module.ts (155 bytes)
